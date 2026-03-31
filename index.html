@@ -108,9 +108,10 @@
       font-size: clamp(2.5rem, 6vw, 4.5rem); 
       font-weight: 900;
       background: var(--primary-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 1rem;
       line-height: 1.1;
     }
@@ -119,7 +120,9 @@
       font-size: clamp(1.2rem, 3vw, 1.8rem);
       font-weight: 300;
       background: var(--secondary-gradient);
+      background-clip: text;
       -webkit-background-clip: text;
+      color: transparent;
       -webkit-text-fill-color: transparent;
       margin-bottom: 2rem;
       letter-spacing: -0.02em;
@@ -314,6 +317,7 @@
     .loading.hidden {
       opacity: 0;
       pointer-events: none;
+      visibility: hidden;
     }
 
     .spinner {
@@ -323,11 +327,29 @@
       border-top: 4px solid white;
       border-radius: 50%;
       animation: spin 1s linear infinite;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
     }
 
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
+    }
+
+    .hero, .contact, .cv-card {
+      transform: translateY(20px);
+      opacity: 0;
+      transition: transform 0.7s ease, opacity 0.7s ease;
+    }
+
+    .hero.visible, .contact.visible, .cv-card.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .cv-card {
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.55));
+      backdrop-filter: blur(12px);
     }
   </style>
 </head>
@@ -384,9 +406,55 @@
   </div>
 
   <script>
-    // Loading Screen
-    window.addEventListener('load', () => {
-      document.getElementById('loading').classList.add('hidden');
-    });
+    // Loading Screen helper
+    const hideLoading = () => {
+      const loadingEl = document.getElementById('loading');
+      if (!loadingEl) return;
+      loadingEl.classList.add('hidden');
+      setTimeout(() => {
+        loadingEl.style.display = 'none';
+      }, 500);
+    };
 
-    
+    const revealContent = () => {
+      document.querySelectorAll('.fade-in-up').forEach((el, idx) => {
+        setTimeout(() => el.classList.add('visible'), idx * 110);
+      });
+    };
+
+    const createParticles = (count = 18) => {
+      for (let i = 0; i < count; i += 1) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 10 + 8;
+        p.style.width = `${size}px`;
+        p.style.height = `${size}px`;
+        p.style.left = `${Math.random() * 100}%`;
+        p.style.top = `${Math.random() * 100}%`;
+        p.style.animationDuration = `${15 + Math.random() * 15}s`;
+        p.style.opacity = `${0.12 + Math.random() * 0.3}`;
+        document.body.appendChild(p);
+      }
+    };
+
+    const initApp = () => {
+      if (document.readyState === 'complete') {
+        hideLoading();
+        revealContent();
+      }
+      window.addEventListener('load', () => {
+        hideLoading();
+        revealContent();
+      });
+      setTimeout(() => {
+        hideLoading();
+        revealContent();
+      }, 1500);
+
+      createParticles();
+    };
+
+    initApp();
+  </script>
+</body>
+</html>
