@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohan Ajay Yanamalamanda - Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { 
+    font-family: 'Inter', -apple-system, sans-serif; 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    padding: 20px;
+  }
+  .container { 
+    background: white; 
+    border-radius: 24px; 
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    max-width: 600px; 
+    width: 100%; 
+    padding: 48px 40px; 
+    text-align: center;
+  }
+  h1 { 
+    font-size: clamp(32px, 5vw, 48px); 
+    font-weight: 700; 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+  .subtitle { 
+    font-size: 20px; 
+    color: #64748b; 
+    margin-bottom: 32px;
+    font-weight: 400;
+  }
+  .contact { 
+    background: #f8fafc; 
+    border-radius: 16px; 
+    padding: 24px; 
+    margin-bottom: 40px;
+  }
+  .contact h3 { font-size: 16px; color: #475569; margin-bottom: 12px; }
+  .contact p { font-size: 14px; color: #64748b; margin: 0; }
+  .cv-grid { display: grid; gap: 16px; }
+  .cv-card { 
+    background: #f8fafc; 
+    border-radius: 16px; 
+    padding: 24px; 
+    text-decoration: none; 
+    display: block; 
+    transition: all 0.3s ease; 
+    border: 2px solid transparent;
+  }
+  .cv-card:hover { 
+    transform: translateY(-4px); 
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15); 
+    border-color: #667eea;
+  }
+  .cv-title { 
+    font-size: 18px; 
+    font-weight: 600; 
+    color: #1e293b; 
+    margin-bottom: 4px;
+  }
+  .cv-desc { 
+    font-size: 14px; 
+    color: #64748b; 
+    line-height: 1.5;
+  }
+  @media (max-width: 480px) { .container { padding: 32px 24px; } }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mohan Ajay Yanamalamanda</h1>
+    <p class="subtitle">Aerospace Engineer | Data Analyst | Portfolio</p>
+
+    <div class="contact">
+      <h3>📞 Get in touch</h3>
+      <p>Hyderabad, Telangana | 800-896-2429 | yma396396@gmail.com</p>
+      <p><a href="https://linkedin.com/in/mohan-ajay-yanamalamanda" target="_blank">LinkedIn</a></p>
+    </div>
+
+    <div class="cv-grid">
+      <a href="Mohanajay_data_analyst_scientist.html" class="cv-card">
+        <div class="cv-title">📊 Data Analyst / Scientist</div>
+        <div class="cv-desc">Excel | VBA | Power BI | SQL | Analytics</div>
+      </a>
+      <a href="Mohanajay_stress_engineering_(static_stress_analysis).html" class="cv-card">
+        <div class="cv-title">🔧 Stress Engineering</div>
+        <div class="cv-desc">Static Analysis | FAR/CS-25 | Hand Calculations</div>
+      </a>
+      <a href="Mohanajay_reliability_engineer.html" class="cv-card">
+        <div class="cv-title">⚙️ Reliability Engineer</div>
+        <div class="cv-desc">V&V | IBM DOORS | Requirements Management</div>
+      </a>
+      <a href="Mohanajay_weights_and_cg_analyst_(dhc_canada_exp).html" class="cv-card">
+        <div class="cv-title">✈️ Weights & CG Analyst</div>
+        <div class="cv-desc">DHC Canada | Load Path | Certification</div>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
